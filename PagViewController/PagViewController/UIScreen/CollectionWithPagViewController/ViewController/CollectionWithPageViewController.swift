@@ -6,12 +6,10 @@
 //
 
 import Foundation
-
 import UIKit
 
 
-
-class PageViewController: UIViewController {
+class CollectionWithPageViewController: UIViewController {
     
     private var currentPage = 0
     private var isTransitionInProgress = false
@@ -88,9 +86,6 @@ class PageViewController: UIViewController {
         
     }
     
-    
-    
-    
     //MARK: Rendom CGFloat
     private func randomCGFloat() -> CGFloat {
         return CGFloat(arc4random()) / CGFloat(UInt32.max)
@@ -104,7 +99,7 @@ class PageViewController: UIViewController {
 
 
 
-extension PageViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension CollectionWithPageViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayTitleName.count

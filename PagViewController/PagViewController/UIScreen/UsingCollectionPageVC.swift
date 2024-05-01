@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InheritanceVC: PageViewController {
+class UsingCollectionPageVC: CollectionWithPageViewController {
 
     let array: [String] = ["Title One",
                            "Title Two",
