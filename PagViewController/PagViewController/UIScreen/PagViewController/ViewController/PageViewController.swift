@@ -119,11 +119,10 @@ extension PageViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.item
+        //MARK: Protect , when didSelectItemAt fast
         if index != currentPage && index < controllers.count && !isTransitionInProgress {
-            
             //scroll items to center
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            
             //set scroll pagViewContoller
             let direction: UIPageViewController.NavigationDirection = index > currentPage ? .forward : .reverse
             isTransitionInProgress = true
@@ -138,6 +137,7 @@ extension PageViewController : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widthLabel =  arrayTitleName[indexPath.item]
+        //dynamic width by text
         let width = calculateLabelWidth(text: widthLabel, font: UIFont.systemFont(ofSize: 20, weight: .bold)) + 10
         return CGSize(width: width, height: 30)
     }
@@ -197,9 +197,3 @@ extension PageViewController : UICollectionViewDelegate, UICollectionViewDataSou
 //        return nil
 //    }
 //}
-
-
-extension UIColor{
-    
-    
-}
